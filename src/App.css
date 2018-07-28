@@ -1,0 +1,44 @@
+.app {
+  background-color: #efeff4;
+  flex: 1;
+  align-items: center;
+}
+
+.image {
+  width: 250;
+  height: 200;
+  margin-top: 80;
+  background-color: skyblue;
+}
+
+.input_container {
+  width: 550;
+  height: 270;
+  margin-top: 25;
+  border-radius: 12;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_item {
+  width: 550;
+  height: 90;
+  font-size: 32;
+}
+
+.search_bt {
+  width: 550;
+  height: 100;
+  margin-top: 50;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10;
+  background-color: #6767fa;
+}
+
+.search_bt_text {
+  font-size: 32;
+  color: #ffffff;
+}
