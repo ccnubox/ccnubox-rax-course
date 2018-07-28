@@ -12,6 +12,7 @@
     "rax-button": "^0.6.4",
     "rax-image": "^0.6.4",
     "rax-link": "^0.6.4",
+    "rax-listview": "^0.6.4",
     "rax-text": "^0.5.4",
     "rax-textinput": "^0.6.4",
     "rax-view": "^0.5.4"

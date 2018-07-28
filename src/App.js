@@ -10,6 +10,10 @@ import InfoService from './services/index.js'
 
 import auditClassIcon from './assets/audit_class.png'
 
+let image = {
+  uri: 'https://github.com/ccnubox/ccnubox-rax-course/blob/master/src/assets/audit_class.png?raw=true'
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.app}>
-        <Image style={styles.image} source={auditClassIcon} />
+        <Image style={styles.image} source={image} />
         <View style={styles.input_container}>
           <TextInput style={styles.input_item} placeholder={`请输入课程名称`}
           onChange={(event) => {
