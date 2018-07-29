@@ -7,14 +7,15 @@
 .container {
   width: 630;
   flex: 1;
+  margin-top: 40;
 }
 
 .item {
   width: 630;
-  height: 150;
+  min-height: 150;
   border-radius: 12;
   background-color: #ffffff;
-  margin-top: 40;
+  margin-bottom: 40;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -37,9 +38,8 @@
 
 .content {
   width: 340;
-  height: 130;
+  min-height: 130;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -54,6 +54,10 @@
   font-size: 28;
   color: #434343;
   font-weight: bold;
+}
+
+.when_where_container {
+  padding-top: 20;
 }
 
 .when_where {
