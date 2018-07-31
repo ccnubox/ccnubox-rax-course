@@ -5,7 +5,8 @@ import Image from 'rax-image';
 import Button from 'rax-button';
 import ListView from 'rax-listview';
 import styles from './result.css';
-import ScrollView from 'rax-scrollview';
+import Picker from 'rax-picker';
+import Toast from 'universal-toast';
 import InfoService from './services/index.js';
 
 function getQueryString(name) {
@@ -81,7 +82,8 @@ class Result extends Component {
     })
     // 未找到课程
     .catch((error) => {
-      alert(error)
+      // alert(error)
+      Toast.show('未找到课程')
     })
   }
 
@@ -114,13 +116,15 @@ class Result extends Component {
         
         <Button onPress={() => {
           let postData = getAddCourseData(item)
-          alert(postData)
+          // alert(postData)
           InfoService.addLesson(postData)
           .then(data => {
-            alert(data)
+            // alert(data)
+            Toast.show('添加成功')
           })
           .catch(data => {
-            alert(data)
+            // alert(data)
+            Toast.show('添加失败')
           })
         }} style={styles.item_bt}>
           <Text style={styles.item_bt_text}>
