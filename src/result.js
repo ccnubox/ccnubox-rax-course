@@ -1,9 +1,9 @@
 import {createElement, Component} from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import Image from 'rax-image';
 import Button from 'rax-button';
 import ListView from 'rax-listview';
+import Image from 'rax-image';
 import styles from './result.css';
 import Picker from 'rax-picker';
 import Toast from 'universal-toast';
@@ -15,6 +15,11 @@ function getQueryString(name) {
   if (r != null) return unescape(r[2]);  
   return null;  
 }
+
+let errorImage = {
+  uri: 'http://ocm66x3nz.bkt.clouddn.com/audit_error.png'
+};
+
 
 const dayMap = {
   '一': '1',
@@ -63,7 +68,8 @@ class Result extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      courseList: []
+      courseList: [],
+      hasResult: true
     };
   }
 
@@ -77,12 +83,16 @@ class Result extends Component {
     // 找到课程
     .then(data => {
       that.setState({
-        courseList: data.res
+        courseList: data.res,
+        hasResult: true
       })
     })
     // 未找到课程
     .catch((error) => {
       // alert(error)
+      that.setState({
+        hasResult: false
+      })
       Toast.show('未找到课程')
     })
   }
@@ -136,16 +146,30 @@ class Result extends Component {
   }
 
   render() {
-    return (
-      <View style={styles.app}>
-        <View style={styles.container}>
-          <ListView
-            renderRow={this.listItem}
-            dataSource={this.state.courseList}
-            />
+    const that = this
+    if (that.state.hasResult) {
+      return (
+        <View style={styles.app}>
+          <View style={styles.container}>
+            <ListView
+              renderRow={this.listItem}
+              dataSource={this.state.courseList}
+              />
+          </View>
         </View>
-      </View>
-    );
+      )
+    }
+    else {
+      return (
+        <View style={styles.error_app}>
+          <View style={styles.error_container}>
+            <Image style={styles.error_image} source={errorImage} />
+            <Text style={styles.error_text}>没有找到此课程</Text>
+          </View>
+          
+        </View>
+      )
+    }
   }
 }
 

@@ -84,3 +84,25 @@
   font-weight: bold;
   color: #ffffff;
 }
+
+.error_app {
+  background-color: #efeff4;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.error_container {
+  align-items: center;
+}
+
+.error_image {
+  width: 412;
+  height: 331;
+}
+
+.error_text {
+  margin-top: 80;
+  font-size: 28;
+  font-family: '苹方-简';
+}
