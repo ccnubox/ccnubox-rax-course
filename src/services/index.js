@@ -11,6 +11,10 @@ const InfoService = {
     return request({
       method: 'POST',
       url: 'https://ccnubox.muxixyz.com/api/table/',
+      headers: {
+        "Content-Type": "application/json",
+        "Sid": '2016214288'
+      },
       body: postData
     })
   }
