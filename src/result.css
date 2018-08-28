@@ -5,20 +5,35 @@
 }
 
 .container {
-  width: 630;
+  width: 750;
   flex: 1;
-  margin-top: 40;
 }
 
 .item {
   width: 630;
   min-height: 150;
   border-radius: 12;
+  padding-top: 20;
+  padding-bottom: 20;
   background-color: #ffffff;
   margin-bottom: 40;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+
+.item_container {
+  display: flex;
+  width: 750;
+  align-items: center;
+}
+
+.item_first {
+  margin-top: 40;
+}
+
+.item_last {
+  margin-bottom: 40;
 }
 
 .kind {
@@ -28,7 +43,7 @@
   border-radius: 6;
   justify-content: center;
   align-items: center;
-  
+  margin-left: 30;
 }
 
 .kind_text {
@@ -37,10 +52,12 @@
 }
 
 .content {
-  width: 340;
+  width: 320;
   min-height: 130;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 30;
+  margin-right: 30;
 }
 
 .item_name {
@@ -77,6 +94,7 @@
   border-radius: 6;
   justify-content: center;
   align-items: center;
+  margin-right: 30;
 }
 
 .item_bt_text {
