@@ -81,6 +81,7 @@ class Result extends Component {
     InfoService.searchLesson(Options)
       // 找到课程
       .then(data => {
+        native.reportInsightApiEvent("searchCourse", "success", "200");
         native.changeLoadingStatus(true);
         this.setState({
           courseList: data.res,
@@ -89,6 +90,7 @@ class Result extends Component {
       })
       // 未找到课程
       .catch(error => {
+        native.reportInsightApiEvent("searchLib", "success", "404");
         native.changeLoadingStatus(true);
         this.setState({
           hasResult: false
@@ -140,9 +142,19 @@ class Result extends Component {
                   let postData = getAddCourseData(item);
                   InfoService.addLesson(postData, sid)
                     .then(data => {
+                      native.reportInsightApiEvent(
+                        "addLessonFromCourse",
+                        "success",
+                        "null"
+                      );
                       Toast.show("添加成功");
                     })
                     .catch(data => {
+                      native.reportInsightApiEvent(
+                        "addLessonFromCourse",
+                        "error",
+                        JSON.stringify(data)
+                      );
                       Toast.show("添加失败");
                     });
                 } else {

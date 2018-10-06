@@ -30,6 +30,24 @@ class App extends Component {
     );
   };
 
+  onNameChange = event => {
+    this.setState({
+      name: event.nativeEvent.text
+    });
+  };
+
+  onTeacherChange = event => {
+    this.setState({
+      t: event.nativeEvent.text
+    });
+  };
+
+  onGradeChange = event => {
+    this.setState({
+      s: event.nativeEvent.text
+    });
+  };
+
   render() {
     return (
       <View style={styles.app}>
@@ -38,29 +56,20 @@ class App extends Component {
           <TextInput
             style={styles.input_item}
             placeholder={`请输入课程名称`}
-            onChange={event => {
-              this.setState({
-                name: event.nativeEvent.text
-              });
-            }}
+            onInput={this.onNameChange}
+            onChange={this.onNameChange}
           />
           <TextInput
             style={styles.input_item}
             placeholder={`请输入任课教师（非必填）`}
-            onChange={event => {
-              this.setState({
-                t: event.nativeEvent.text
-              });
-            }}
+            onInput={this.onTeacherChange}
+            onChange={this.onTeacherChange}
           />
           <TextInput
             style={styles.input_item}
             placeholder={`请输入授课年级（非必填）`}
-            onChange={event => {
-              this.setState({
-                s: event.nativeEvent.text
-              });
-            }}
+            onInput={this.onGradeChange}
+            onChange={this.onGradeChange}
           />
         </View>
         <Touchable onPress={this.onSubmit}>
